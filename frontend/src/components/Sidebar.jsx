@@ -1,6 +1,6 @@
 function Sidebar() {
     return ( 
-        <div>
+        <div >
             <h1>Sidebar</h1>
             <h2>Show Students</h2>
             <h2>Update Student</h2>
