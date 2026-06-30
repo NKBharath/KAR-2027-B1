@@ -1,9 +1,8 @@
-import Sidebar from "../components/Sidebar";
-import students from "../data/studentdata";
+import Sidebar from "../../components/Sidebar";
+import students from "../../data/studentdata";
 function ShowStudent() {
-  
   return (
-    <div >
+    <div>
       <div>
         <div>
           <Sidebar />

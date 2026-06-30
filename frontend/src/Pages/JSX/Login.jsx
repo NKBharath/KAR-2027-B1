@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../CSS/Login.css";
 function Login() {
   //const [email, setEmail] = useState("");
   //const [password, setPassword] = useState("");
-
+  const Navigate = useNavigate();
   const [formdata, setFormdata] = useState({
     email: "",
     password: "",
@@ -19,12 +21,18 @@ function Login() {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(formdata);
+    if (
+      formdata.email === "bharathnk@gmail.com" &&
+      formdata.password === "1234"
+    ) {
+      Navigate("/show-student");
+    } else console.log("Invalid credentials");
   };
 
   return (
-    <div>
+    <div className="login-container">
       <h1>Login</h1>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className="login-form">
         <input
           type="email"
           placeholder="Email"
@@ -39,7 +47,9 @@ function Login() {
           name="password"
           onChange={handleChange}
         />
-        <button type="submit">Login</button>
+        <button type="submit" className="login-button">
+          Login
+        </button>
       </form>
     </div>
   );
