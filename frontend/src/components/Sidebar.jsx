@@ -1,15 +1,16 @@
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import "./Sidebar.css";
 function Sidebar() {
-            const Navigate = useNavigate();
+        const Navigate = useNavigate();
 
     return ( 
-        <div >
-            <h1>Sidebar</h1>
-            <h2 onClick={() => Navigate("/show-student")}>Show Students</h2>
-            <h2 onClick={() => Navigate("/update-student")}>Update Student</h2>
-            <h2 onClick={() => Navigate("/add-student")}>Add Student</h2>
-            <h2 onClick={() => Navigate("/delete-student")}>Delete Student</h2>
+        <div className="sidebar-container">
+            <h2 >Sidebar</h2>
+            <div className="sidebar-item" onClick={() => Navigate("/show-student")}>Show Students</div>
+            <div className="sidebar-item" onClick={() => Navigate("/update-student")}>Update Student</div>
+            <div className="sidebar-item" onClick={() => Navigate("/add-student")}>Add Student</div>
+            <div className="sidebar-item" onClick={() => Navigate("/delete-student")}>Delete Student</div>
         </div>
      );
 }

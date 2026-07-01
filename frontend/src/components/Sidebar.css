@@ -1,0 +1,28 @@
+.sidebar-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width:fit-content;
+    padding: 20px;
+    color: white;
+    background-color: #1f234c;
+}
+.sidebar-item{
+    background-color: #353c8a;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.sidebar-container h2{
+    margin-bottom: 20px;
+    font-size: 23px;
+    font-weight: light;
+    text-align: center;
+}
+
+.sidebar-item:hover{
+    background-color: #4a4f9c;
+    cursor: pointer;
+}

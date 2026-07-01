@@ -1,0 +1,4 @@
+.show-student-container {
+    display: flex;
+    flex-direction: row;
+}

@@ -31,10 +31,13 @@ function Login() {
 
   return (
     <div className="login-container">
-      <h1>Login</h1>
-      <form onSubmit={onSubmit} className="login-form">
+      <div className="login-form-container">
+        <form onSubmit={onSubmit} className="login-form">
+          <h1>LOGIN</h1>
+
         <input
           type="email"
+
           placeholder="Email"
           required
           name="email"
@@ -50,7 +53,10 @@ function Login() {
         <button type="submit" className="login-button">
           Login
         </button>
+        <p>Welcome to the Login Page</p>
       </form>
+      </div>
+      <h1></h1>
     </div>
   );
 }
