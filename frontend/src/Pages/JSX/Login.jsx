@@ -5,6 +5,7 @@ function Login() {
   //const [email, setEmail] = useState("");
   //const [password, setPassword] = useState("");
   const Navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [formdata, setFormdata] = useState({
     email: "",
     password: "",
@@ -20,13 +21,20 @@ function Login() {
   };
   const onSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     console.log(formdata);
-    if (
+    setTimeout(()=>{
+      if (
       formdata.email === "bharathnk@gmail.com" &&
       formdata.password === "1234"
     ) {
       Navigate("/show-student");
-    } else console.log("Invalid credentials");
+    } else {
+      console.log("Invalid credentials");
+      setLoading(false);
+    }
+    }, 5000);
+    
   };
 
   return (
@@ -50,8 +58,8 @@ function Login() {
           name="password"
           onChange={handleChange}
         />
-        <button type="submit" className="login-button">
-          Login
+        <button type="submit" className="login-button" disabled={loading}>
+          {`${loading ? "Logging in..." : "Login"}`}
         </button>
         <p>Welcome to the Login Page</p>
       </form>

@@ -1,20 +1,44 @@
+import { useEffect, useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import students from "../../data/studentdata";
 import "../CSS/ShowStudent.css";
+
 function ShowStudent() {
-  return (
+  const [loading, setLoading] = useState(true);
+  const [loggedin, setLoggedin] = useState(false);
+  const [count, setCount] = useState(0);
+  useEffect(()=>{
+    console.log("use effect called");
+  },[loading]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return loading ? (
+    <div>Loading...</div>
+  ) : (
     <div className="show-student-container">
       <div className="sidebar-container">
         <Sidebar />
+        <p>Count: {count}</p>
+        {loggedin && <p>Welcome, {loggedin}</p>}
       </div>
+
       <div>
         <table>
           <thead>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>City</th>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>City</th>
+            </tr>
           </thead>
+
           <tbody>
             {students.map((student) => (
               <tr key={student.id}>
@@ -26,7 +50,8 @@ function ShowStudent() {
             ))}
           </tbody>
         </table>
-        <h1>hiiiii</h1>
+
+        <h1>Hiiiii</h1>
       </div>
     </div>
   );
