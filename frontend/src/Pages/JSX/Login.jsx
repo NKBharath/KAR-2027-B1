@@ -6,6 +6,7 @@ function Login() {
   //const [password, setPassword] = useState("");
   const Navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [errror, setError] = useState(false);
   const [formdata, setFormdata] = useState({
     email: "",
     password: "",
@@ -32,6 +33,7 @@ function Login() {
     } else {
       console.log("Invalid credentials");
       setLoading(false);
+      setError(true);
     }
     }, 5000);
     
@@ -58,6 +60,7 @@ function Login() {
           name="password"
           onChange={handleChange}
         />
+        {errror && <p>Invalid credentials</p>}
         <button type="submit" className="login-button" disabled={loading}>
           {`${loading ? "Logging in..." : "Login"}`}
         </button>
