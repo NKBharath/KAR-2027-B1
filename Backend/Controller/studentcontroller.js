@@ -12,13 +12,13 @@ const addStudent = async(req, res) => {
         });
         await student.save();
         res.status(201).json({
-            success: true,
+            success: "true",
             message: "Student added successfully",
             data: student
         })
     }catch(error){
         res.status(500).json({
-            success: false,
+            success: "false",
             message: "Failed to add student",
             error: error.message,
         })
